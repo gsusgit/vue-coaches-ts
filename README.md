@@ -32,6 +32,12 @@ pnpm dev
 pnpm build
 ```
 
+### Test [ESLint](https://eslint.org/)
+
+```sh
+pnpm test
+```
+
 ### Lint with [ESLint](https://eslint.org/)
 
 ```sh
