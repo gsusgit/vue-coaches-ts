@@ -13,7 +13,7 @@
         :class="[
           sorting === 'asc'
             ? 'text-white bg-teal-700 hover:bg-teal-700 focus:ring-teal-300'
-            : 'text-gray-700 bg-white border-2 border-gray-100 hover:bg-teal-700 hover:text-white focus:ring-teal-300'
+            : 'text-gray-700 bg-white border-2 border-gray-100 hover:bg-teal-700 hover:text-white focus:ring-teal-300',
         ]"
       >
         Sort Ascending
@@ -24,15 +24,13 @@
         :class="[
           sorting === 'desc'
             ? 'text-white bg-teal-700 hover:bg-teal-700 focus:ring-teal-300'
-            : 'text-gray-700 bg-white border-2 border-gray-100 hover:bg-teal-700 hover:text-white focus:ring-teal-300'
+            : 'text-gray-700 bg-white border-2 border-gray-100 hover:bg-teal-700 hover:text-white focus:ring-teal-300',
         ]"
       >
         Sort Descending
       </button>
     </div>
-    <ul
-      class="space-y-3 border-2 border-gray-100 p-3 rounded-md max-h-96 overflow-y-scroll"
-    >
+    <ul class="space-y-3 border-2 border-gray-100 p-3 rounded-md max-h-96 overflow-y-scroll">
       <coach-item
         v-for="coach in displayedCoaches"
         :key="coach.id"
@@ -53,8 +51,8 @@ import CoachItem from '@/components/templates/coaches/CoachItem.vue'
 const props = defineProps({
   coaches: {
     type: Array,
-    default: null
-  }
+    default: null,
+  },
 })
 
 const { coaches } = toRefs(props)
@@ -65,7 +63,7 @@ const availableCoaches = computed(() => availableItems.value)
 
 const { enteredSearchTerm, availableItems, updateSearch } = useSearch(
   computed(() => coaches.value),
-  'name'
+  'name',
 )
 const { sorting, sort, sortedItems } = useSort(availableCoaches, 'name')
 

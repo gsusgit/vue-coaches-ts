@@ -7,15 +7,13 @@ export default function useSearch(items: ComputedRef, searchParam: string) {
   const availableItems = computed(() => {
     if (activeSearchTerm.value) {
       return items.value.filter((item: Record<string, string | number>) =>
-        item[searchParam]
-          ?.toString().toLowerCase()
-          .includes(activeSearchTerm.value.toLowerCase())
+        item[searchParam]?.toString().toLowerCase().includes(activeSearchTerm.value.toLowerCase()),
       )
     }
     return items.value
   })
 
-  const updateSearch = (val:string) => {
+  const updateSearch = (val: string) => {
     enteredSearchTerm.value = val
   }
 
@@ -31,6 +29,6 @@ export default function useSearch(items: ComputedRef, searchParam: string) {
     enteredSearchTerm,
     activeSearchTerm,
     availableItems,
-    updateSearch
+    updateSearch,
   }
 }

@@ -41,6 +41,6 @@ export default function useSort(items: ComputedRef, field: string) {
   return {
     sorting,
     sort,
-    sortedItems
+    sortedItems,
   }
 }
